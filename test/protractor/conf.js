@@ -1,12 +1,13 @@
 "use strict";
 
-var wd = require('wd');
+var wd = require('wd'),
+    protractor = require('protractor');
 var  wdBridge;
 try {
-  wdBridge = require('wd-bridge')(wd);
+  wdBridge = require('wd-bridge')(protractor, wd);
 } catch (ign) {
   // just so that it runs locally
-  wdBridge = require('../..')(wd);
+  wdBridge = require('../..')(protractor, wd);
 }
 
 // An example configuration file.

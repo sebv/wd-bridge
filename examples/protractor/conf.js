@@ -3,10 +3,10 @@
 var wd = require('wd');
 var  wdBridge;
 try {
-  wdBridge = require('wd-bridge')(wd);
+  wdBridge = require('wd-bridge')(require('protractor'), wd);
 } catch (ign) {
   // just so that it runs locally
-  wdBridge = require('../..')(wd);
+  wdBridge = require('../..')(require('protractor'), wd);
 }
 
 // An example configuration file.

@@ -35,6 +35,25 @@ wdBridge
   }).then(function () { return wdDriver.title(); })
   .then(function (title) {
     console.log('title from wdDriver -->', title);
+  }).then(function () {
+    // converting to wd element
+    return driver.findElement(seleniumWebdriver.By.id('mainContent'))
+      .then(function (el) {
+        return wdDriver.wdEl(el).text();
+      })
+      .then(function (text) {
+        console.log('text after converting to wd element -->',
+          text.substring(0, 50));
+      });
+  }).then(function () {
+    // converting from wd element
+    return wdDriver.elementById('mainContent')
+      .then(function (el) {
+        return wdDriver.swEl(el).getText();
+      }).then(function (text) {
+        console.log('text after converting from wd element -->',
+          text.substring(0, 50));
+      });
   }).then(function () { return driver.quit(); })
   .done();
 ```
@@ -90,6 +109,23 @@ describe('angularjs homepage', function () {
     wdBrowser.title().then(function (title) {
       expect(title).toEqual('AngularJS — Superheroic JavaScript MVW Framework');
     }).nodeify(done);
+  });
+
+  it('should convert to wd element', function (done) {
+    var el = element.all(by.repeater('todo in todos')).get(1);
+    wdBrowser.wdEl(el).text().then(function (text) {
+      expect(text).toEqual('build an angular app');
+    }).nodeify(done);
+  });
+
+  it('should convert from wd element', function (done) {
+    return wdBrowser
+      .elementById('add-some-control')
+      .then(function (el) {
+        return wdBrowser.swEl(el).getText().then(function (text) {
+          expect(text).toEqual('Add Some Control');
+        });
+      }).nodeify(done);
   });
 });
 ```
