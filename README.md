@@ -1,5 +1,9 @@
 #wd-bridge
 
+[![NPM version](https://badge.fury.io/js/wd-bridge.png)](https://npmjs.org/package/wd-bridge)
+[![Dependency Status](https://david-dm.org/sebv/wd-bridge.svg)](https://david-dm.org/sebv/wd-bridge)
+[![devDependency Status](https://david-dm.org/sebv/wd-bridge/dev-status.svg)](https://david-dm.org/sebv/wd-bridge#info
+
 bridge between the wd driver and other selenium clients
 
 #install
