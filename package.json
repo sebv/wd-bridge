@@ -1,6 +1,6 @@
 {
   "name": "wd-bridge",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "a bridge between the wd driver and other selenium clients",
   "main": "index.js",
   "directories": {
@@ -19,7 +19,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/sebv/wd-bridge"
-  },  
+  },
   "license": "MIT",
   "devDependencies": {
     "chai": "^1.9.1",
